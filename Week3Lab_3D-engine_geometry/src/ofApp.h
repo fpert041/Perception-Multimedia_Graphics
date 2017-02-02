@@ -2,10 +2,12 @@
 
 #include "ofMain.h"
 #include "Starfield.hpp"
+#include "Primitives.hpp"
 
 class ofApp : public ofBaseApp{
 private:
-    Starfield field;
+    Starfield field; // this creates a starfield object
+    Primitives tetra = Primitives(tetra.TETRA);
 
 	public:
 		void setup();

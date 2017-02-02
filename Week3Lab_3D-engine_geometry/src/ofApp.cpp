@@ -13,7 +13,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    field.draw();
+    //field.draw();
 
 }
 

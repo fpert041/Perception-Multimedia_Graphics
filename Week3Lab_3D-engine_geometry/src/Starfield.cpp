@@ -12,29 +12,25 @@
 Starfield::Starfield(){
     
     // Initialise variables
-    x3d = 0;
-    y3d = 0;
-    z3d = 0;
-    HALF_WIDTH = ofGetWidth()/2;
-    HALF_HEIGHT = ofGetHeight()/2;
+    numVerteces = 1000;
     
     // Fill container for stars with sets of random 3D coordinates
-    for (int i = 0; i < numPoints; ++i) {
+    for (int i = 0; i < numVerteces; ++i) {
         point = { (ofRandom(0.,1.) * ofGetWidth()/2) - ofGetWidth()/4, (ofRandom(0.,1.) * ofGetHeight()/2) - ofGetHeight()/4, (ofRandom(0.,1.) * ofGetWidth()/2) - ofGetWidth()/4 };
         
-        points.push_back(point);
+        verteces.push_back(point);
+        
     }
 }
 
 void Starfield::draw(){
-    
     ofBackground(0, 0, 0);
     
     // This loop takes a bunch of 3D vertices and draws them using a 2D perspective projection
-    for(int i =0; i<numPoints; ++i){
+    for(int i =0; i<numVerteces; ++i){
         
         // Get a vertex
-        std::array<double, 3> &point3d = points[i];
+        std::array<double, 3> &point3d = verteces[i];
         
         // Get the z coordinate - this is the depth
         z3d = point3d[2];
@@ -71,7 +67,9 @@ void Starfield::draw(){
         ofSetColor(255, 255, 255);
         ofDrawLine(x2d, y2d, x2d+scale, y2d);
         
-        // ofDrawRectangle(x2d, y2d, 0, scale, scale); // alternative to line (does not require "setLineWidth")
+        // ofDrawRectangle(x2d, y2d, scale, scale); // alternative to line (does not require "setLineWidth")
     }
+    
+    
     
 }
