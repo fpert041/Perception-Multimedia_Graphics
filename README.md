@@ -12,11 +12,14 @@ Drawing 3D Perspective on a 2D canvas
 - Fractals:
 a simple sketch that calculates the Mandelbrot set and draws it to screen
 
-- Superformula:
+- SuperFormula:
 C++ Implementation of the superformula and a tunnel-like graphics made using translation and rotation of concentric circles
 
 - Week3Lab:
 a simple 3D engine using perspective projection to draw 3D verteces on a 2D canvass
+
+- ProceduralSphere:
+a simple geometric plotting of verteces to generate a sphere procedurally
 
 
 

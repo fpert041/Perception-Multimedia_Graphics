@@ -20,6 +20,8 @@ public:
 public:
     Primitives(int);
     
+    void draw();
+    
 };
 
 #endif /* Primitives_hpp */
