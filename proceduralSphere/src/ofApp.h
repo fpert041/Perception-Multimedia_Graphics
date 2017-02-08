@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Sphere.hpp"
 
 class ofApp : public ofBaseApp{
 	public:
@@ -20,9 +21,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     
-    int dim;
-    float spacing;
-    float size;
+    Sphere s1;
+    Sphere s2 = Sphere(1);
     
     ofCamera cam;
     

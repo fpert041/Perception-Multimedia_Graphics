@@ -19,7 +19,7 @@ C++ Implementation of the superformula and a tunnel-like graphics made using tra
 a simple 3D engine using perspective projection to draw 3D verteces on a 2D canvass
 
 - ProceduralSphere:
-a simple geometric plotting of verteces to generate a sphere procedurally
+a simple geometric plotting of verteces to generate a sphere procedurally (we use OOP to turn this into the Death Star plans!)
 
 
 
