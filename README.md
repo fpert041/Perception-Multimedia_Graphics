@@ -9,10 +9,10 @@ Drawing 3D Perspective on a 2D canvas
 
 ### Current projects:
 
--Fractals:
+- Fractals:
 a simple sketch that calculates the Mandelbrot set and draws it to screen
 
--Superformula:
+- Superformula:
 C++ Implementation of the superformula and a tunnel-like graphics made using translation and rotation of concentric circles
 
 - Week3Lab:
