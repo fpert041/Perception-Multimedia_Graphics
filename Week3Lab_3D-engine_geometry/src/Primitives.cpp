@@ -15,6 +15,10 @@
 
 // Euler's relation btw states that: Verteces-Edges+Faces=2
 
+// http://www2.mae.ufl.edu/~uhk/PLATONIC-SOLIDS.pdf
+// http://www.vb-helper.com/tutorial_platonic_solids.html
+// http://paulbourke.net/geometry/platonic/
+
 /*
                 F   V   E
  
@@ -41,19 +45,51 @@ Primitives::Primitives(int t){
         case TETRA:
             numVerteces = 4;
 
-            for (int i = 0; i < numVerteces; ++i) {
-                point = { sin(θ)*cos(φ), sin(θ)*sin(φ), cos(θ)};
-                
-                verteces.push_back(point);
-            }
+//            for (int i = 0; i < numVerteces; ++i) {
+//                point = { sin(θ)*cos(φ), sin(θ)*sin(φ), cos(θ)};
+//                
+//                verteces.push_back(point);
+//            }
+            // how to derive the below from the above?
+            point = { 1, 1, 1 };
+            verteces.push_back(point);
+            point = { -1, -1, 1 };
+            verteces.push_back(point);
+            point = { -1, 1, -1 };
+            verteces.push_back(point);
+            point = { 1, -1, -1 };
+            verteces.push_back(point);
+            
             break;
-        
+        case HEXA:
+            
+            numVerteces = 6;
+            
+            point = { 1, 0, 0 };
+            verteces.push_back(point);
+            point = { 0, 1, 0 };
+            verteces.push_back(point);
+            point = { 0, 0, 1 };
+            verteces.push_back(point);
+            point = { -1, 0, 0 };
+            verteces.push_back(point);
+            point = { 0, -1, 0 };
+            verteces.push_back(point);
+            point = { 0, 0, -1 };
+            verteces.push_back(point);
+            
+            break;
         // other cases...
     }
 }
 
 void Primitives::draw(){
     // This loop takes a bunch of 3D vertices and draws them using a 2D perspective projection
+    // Draw a square of size 'scale', in position x2d, y2d.
+    ofSetColor(255, 255, 255);
+    
+    glBegin(GL_LINE_LOOP);
+    
     for(int i =0; i<numVerteces; ++i){
         
         // Get a vertex
@@ -63,11 +99,10 @@ void Primitives::draw(){
         z3d = point3d[2];
         
         // substract a value - this will move it along the z axis.
-        z3d -= .4;
+        //z3d -= .8;
         
         // if the z coordinate for this vertex is less than the Fielf of View (FOV),
-        // Add half the width to move it back. This makes an endless starfield.
-        // feel free to disable this if you want...
+        // Add half the width to move it back.
         if(z3d < -fov)
             z3d += HALF_WIDTH;
         
@@ -80,7 +115,7 @@ void Primitives::draw(){
         z3d = point3d[2];
         
         // Decide on the size of the point by taking the FOV and dividing it by the FOV + the z pos
-        float scale = fov / (fov + z3d);
+        float scale = fov / (fov + z3d) * 50;
         
         // Now create the 2D perspective.
         // create a 2D x and y position by multiplying the x and y coordinates by the scale
@@ -88,13 +123,13 @@ void Primitives::draw(){
         double x2d = (x3d * scale) + HALF_WIDTH;
         double y2d = (y3d * scale) + HALF_HEIGHT;
         
-        // Draw a square of size 'scale', in position x2d, y2d.
-        // This code is more complex than you might be used to because it's pure JS.
-        ofSetLineWidth(scale);
-        ofSetColor(255, 255, 255);
-        ofDrawLine(x2d, y2d, x2d+scale, y2d);
+        //std::cout<<x2d << " " <<y2d <<std::endl;
+        
+        glVertex2d(x2d, y2d);
         
         // ofDrawRectangle(x2d, y2d, scale, scale); // alternative to line (does not require "setLineWidth")
     }
+    
+    glEnd();
     
 }

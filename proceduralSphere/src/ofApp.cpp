@@ -35,40 +35,50 @@ void ofApp::draw(){
     
     
     ofBackground(0);
+    
+    ofSetLineWidth(1);
 
     // cam gives us proper openGL world coordinates, like proper openGL
     cam.begin();
 
     // We're rotating using OF, because OFs projection matrix is a bit screwy if we use the native openGL method.
     
-    ofRotateY(ofGetElapsedTimeMillis()/40);
+    ofPushMatrix();
     
-    ofSetColor(220, 0, 0);
+        ofRotateY(ofGetElapsedTimeMillis()/40);
+        ofRotateX(45);
+        ofSetColor(220, 0, 0);
+        s1.draw();
     
-    s1.draw();
-    s2.draw(2.25, 2.25, 2.25);
+        ofPushMatrix();
+            ofRotateX(90);
+            ofSetColor(220, 175, 0);
+            ofTranslate(0., 0., -3.7);
+            s2.draw();
+        ofPopMatrix();
+    
+        ofPopMatrix();
 
     cam.end();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    s1.resetSquash();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y){
-
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    float wx = (float)x/ofGetWidth() * 16. - 8.;
+    s2.updateSquash(wx);
 }
 
 //--------------------------------------------------------------

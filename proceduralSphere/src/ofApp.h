@@ -22,7 +22,7 @@ class ofApp : public ofBaseApp{
     
     
     Sphere s1;
-    Sphere s2 = Sphere(1);
+    Sphere s2 = Sphere(1.8, 2, 0.7);
     
     ofCamera cam;
     

@@ -7,7 +7,8 @@
 class ofApp : public ofBaseApp{
 private:
     Starfield field; // this creates a starfield object
-    Primitives tetra = Primitives(tetra.TETRA);
+    Primitives tetra = Primitives(TETRA);
+    Primitives cube = Primitives(HEXA);
 
 	public:
 		void setup();

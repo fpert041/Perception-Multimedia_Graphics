@@ -15,6 +15,7 @@ Starfield::Starfield(){
     numVerteces = 1000;
     
     // Fill container for stars with sets of random 3D coordinates
+    verteces.clear();
     for (int i = 0; i < numVerteces; ++i) {
         point = { (ofRandom(0.,1.) * ofGetWidth()/2) - ofGetWidth()/4, (ofRandom(0.,1.) * ofGetHeight()/2) - ofGetHeight()/4, (ofRandom(0.,1.) * ofGetWidth()/2) - ofGetWidth()/4 };
         
@@ -24,7 +25,6 @@ Starfield::Starfield(){
 }
 
 void Starfield::draw(){
-    ofBackground(0, 0, 0);
     
     // This loop takes a bunch of 3D vertices and draws them using a 2D perspective projection
     for(int i =0; i<numVerteces; ++i){

@@ -16,21 +16,28 @@ class Sphere {
 public:
     Sphere();
     Sphere(float);
+    Sphere(float, float);
+    Sphere(float, float, float);
     
     void draw();
     void draw(float, float, float); //draw a translated sphere
+    
+    void updateSquash(float);
+    void resetSquash();
     
     
     int dim;
     float spacing;
     float size;
+    float divide;
+    float squashiness;
     
     ofCamera cam;
     
     std::vector<ofVec3f> points;
     
 private:
-    void setup(float);
+    void setup(float, float, float);
 };
 
 #endif /* Sphere_hpp */

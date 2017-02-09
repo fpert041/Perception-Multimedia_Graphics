@@ -13,10 +13,11 @@
 #include "ofMain.h"
 #include "Actor.hpp"
 
+enum {TETRA=0, HEXA=1};
 
 class Primitives : public Actor{
 public:
-    enum {TETRA=0};
+
 public:
     Primitives(int);
     
